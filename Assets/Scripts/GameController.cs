@@ -8,8 +8,10 @@ public class GameController : MonoBehaviour
 {
     public GameObject leftPlayer;
     public GameObject rightPlayer;
+    public GameObject ball;
 
     public int _tickRate = 60;
+    public float _speed = 2.0f;
     
     private WebSocket _socket;
     private GameObject _current;
@@ -72,6 +74,8 @@ public class GameController : MonoBehaviour
                         rightPlayer.transform.position = new Vector3(7f, position_blue, 0f);
                     }
 
+                    ball.transform.position = new Vector3(packet.ball_x, packet.ball_y, 0f);
+                    
                     break;
                 
                 default:
@@ -101,7 +105,7 @@ public class GameController : MonoBehaviour
             return;
         }
         
-        var newPosition = new Vector3(_current.transform.position.x, _current.transform.position.y + vertical * Time.deltaTime, 0f);
+        var newPosition = new Vector3(_current.transform.position.x, _current.transform.position.y + vertical * _speed * Time.deltaTime, 0f);
 
         _current.transform.position = newPosition;
     }
