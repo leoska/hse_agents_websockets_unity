@@ -423,7 +423,7 @@ MonoBehaviour:
   rightPlayer: {fileID: 1185144306}
   ball: {fileID: 1439531565}
   _tickRate: 60
-  _speed: 2
+  _speed: 12
 --- !u!1 &1751957642
 GameObject:
   m_ObjectHideFlags: 0
